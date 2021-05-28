@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scrollremove">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewatch</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/stylesheet.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    
+    <script src="https://kit.fontawesome.com/9cf422df64.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body class="scrollremove" onload="read_data()">
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-lg-5" href="main.html">
+        <img src="imgs/logo1.png" class="navbar_logo_image" alt="">
+        <span class="navbar_logo_title ml-1"><span style="color: #f26729;">Fire</span><span style="color: #1d2a38;">watch</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-lg-auto me-lg-5 collapse_with_icons">
+          
+          <input type="text"  class="form-control me-2 search_btn_label mt-4"  id="search_btn_label" style="height: 40px; width: 100%; text-align: center; font-weight: 900; font-size: 20px;" placeholder="Search" aria-label="Search">
+            <button onclick="location.href='add.html'" class="btn  h-25 mt-4 ms-lg-4" style="background: transparent; color: #f26729; font-weight: 900;"><i class="fas fa-plus-circle" style="font-size: 25px;color: #1d2a38;"></i></button>
+          <button onclick="location.href='main.html'" class="btn  h-25 mt-4 ms-lg-4" style="background: transparent; color: #f26729; font-weight: 900;"><i class="fas fa-home" style="font-size: 25px;color: #1d2a38;"></i></button>
+          <button onclick="location.href='messages.html'" class="btn  h-25 mt-4 ms-lg-4" style="background: transparent; color: #f26729; font-weight: 900;"><i class="fas fa-paper-plane" style="font-size: 25px;color: #1d2a38;"></i></button>
+          <button onclick="location.href='saved.html'" class="btn  h-25 mt-4 ms-lg-4" style="background: transparent; color: #f26729; font-weight: 900;"><i class="fas fa-heart" style="font-size: 25px;color: #1d2a38;"></i></button>
+          <button onclick="location.href='profile.html'" class="btn  h-25 mt-4 ms-lg-4" style="background: transparent; color: #f26729; font-weight: 900;"><i class="fas fa-user" style="font-size: 25px;color: #f26729;"><span class=" ms-2" id="username_span" style="font-size: 15px; font-weight: 900; color:#f26729 ; font-style: oblique;"></span></i></button>
+          <button onclick="location.href='login.html'" class="btn  h-25 mt-4 ms-lg-4" style="background: transparent; color: #f26729; font-weight: 900;"><i class="fas fa-door-open" style="font-size: 25px;color: #1d2a38;"></i></button>
+        </div>
+      </div>
+    </div>
+</nav>
+
+  <div class="container d-block mt-lg-1 mb-lg-1" id="top_div">
+    <div style="width: 100%; height: 50px; background: white;"></div>
+  </div>
+
+
+  
+
+  <div class="container mt-5">
+      <div class="row">
+          
+          <div class="col-lg-6 col-md-12">
+            <div class="card">
+                
+                <div class="card-body">
+                    <div class="card-title mb-3" style="font-weight: 900; font-size: 30px;">Profile  <button onclick="removeUser()" id="admin_remove_btn" style="visibility: hidden;" class="btn"><i class="fas fa-exclamation-circle" style="font-size: 25px; color: red;"></i></button></div>
+                    <div class="row justify-content-lg-start">
+                        <div class="col-xl-5" >
+                            <img id="profile_img" src="imgs_profile/blank_profile.png" style="max-width: 200px;" alt="">
+                            <input type="file" onchange="loadFile(event)"  accept="image/gif, image/jpeg, image/png" name="image" id="file" style="display: none;">
+                            <p class="mt-lg-5" id="input_p" style="display: none; max-width: 200px;"><label for="file" style="cursor: pointer; font-size: 20px; font-weight: 900;" class="form-control text-center" >Click to change profile image</label></p>
+                            <img class="card-img" id="output" style="max-width: 500px; " />	
+                        </div>
+                        <div class="col-xl-7 mt-xl-4" >
+                            <span style="font-size: 20px; color: #f26729; font-weight: 900;" id="username_field"></span>
+                            <br>
+                            <span >Joined <span class="navbar_logo_title ml-1"><span style="color: #f26729;">Fire</span><span style="color: #1d2a38;">watch on </span></span><span id="date_field" style="font-weight: 900; text-decoration:underline #f26729 3px;"></span></span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 mt-3">
+                            <span ><i style="font-size: 25px;" class="fas fa-signature me-2 mt-1" ></i><span style="font-size: 20px; font-weight: 900;" id="name_field"></span><input id="new_name" class="form-control w-100" type="text" placeholder="New Name" style="display:none;"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <span><i style="font-size: 25px;" class="fas fa-city me-2 mt-3"></i> <span id="city_field" style="font-size: 20px; font-weight: 900;"></span><input id="new_city" class="form-control w-100" type="text" placeholder="New City" style="display:none;"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <span><i style="font-size: 25px;" class="fas fa-address-card me-2 mt-3"></i> <span id="description_field" style="font-size: 15px; font-weight: 300;"></span><input id="new_description" class="form-control w-100" type="text" placeholder="New Description" style="display:none;"></span>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <span><i style="font-size: 30px;" class="fas fa-mars me-2 " id="gender_icon"></i></i> <span id="gender_field" style="font-size: 20px; font-weight: 900;"></span><input id="new_gender" class="form-control w-100" type="text" placeholder="New Gender(Male/Female/Other)" style="display:none;"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <span  ><i style="font-size: 25px;" class="fas fa-birthday-cake me-2 mt-3"></i> <span id="age_field" style="font-size: 20px; font-weight: 900;"></span> <span id="age_field_next">years old</span ><input id="new_age" class="form-control w-100" type="text" placeholder="New Age" style="display:none;"> </span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <span><i style="font-size: 25px;" class="fas fa-briefcase me-2 mt-3"></i> <span id="occupation_field" style="font-size: 20px; font-weight: 900;"></span><input id="new_occupation" class="form-control w-100" type="text" placeholder="New Occupation" style="display:none;"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <span ><i style="font-size: 25px;" class="fas fa-user-friends me-2 mt-3"></i></i> <span id="friends_field" style="font-size: 20px; font-weight: 900;"></span> <span  id="friends_field_next">friends</span> </span>
+                        </div>
+                        <div class="col-12 mt-3">
+                         <button onclick="change_info()" class="btn submit_change_btn btn-outline-secondary" id="submit_change_btn" style="display: none;">Change Info</button>
+                        </div>
+
+                        <div class="col-12 mt-3" style="display: flex;">
+                          <button onclick="add_friend()" class="btn add_friend_btn btn-secondary w-100" id="add_friend_btn" style="background: #f26729;">Add friend!</button>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="card">
+               
+                <div class="card-body" id="galery_body">
+                    <div class="card-title" style="font-weight: 900; font-size: 30px;">Gallery</div>
+                    
+                    
+                </div>
+            </div>
+           
+          </div>
+      </div>
+      
+  </div>
+ 
+
+  
+  
+
+
+  
+
+  <div class="container d-block mt-lg-1 mb-lg-1" id="bottom_div">
+    <div style="width: 100%; height: 50px; background: white;"></div>
+  </div>
+  
+    
+    
+
+
+
+        <!-- Footer -->
+    <footer class="bg-dark text-center text-white down_footer ">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>Sign up for our newsletter</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+  
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <!-- Email input -->
+              <div class="form-outline form-white mb-4">
+                <input type="email" id="form5Example2" class="form-control" />
+                <label class="form-label" for="form5Example2">Email address</label>
+              </div>
+            </div>
+            <!--Grid column-->
+  
+            <!--Grid column-->
+            <div class="col-auto">
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-outline-light mb-4">
+                Subscribe
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+  
+      <!-- Section: Text -->
+      <section class="mb-4">
+       <img src="imgs/logo2.png" style="width: 100px;" alt="">
+      </section>
+      <!-- Section: Text -->
+  
+      
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="#">Firewatch.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+    
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+  <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+          apiKey: "AIzaSyBu2RUkf4PeQQeGLXrBttcucjDDsxDAvqk",
+          authDomain: "firewatch-574d5.firebaseapp.com",
+          databaseURL: "https://firewatch-574d5-default-rtdb.firebaseio.com",
+          projectId: "firewatch-574d5",
+          storageBucket: "firewatch-574d5.appspot.com",
+          messagingSenderId: "516918166855",
+          appId: "1:516918166855:web:e0d8811e9912e02a62f862",
+          measurementId: "G-5R5RD117KL"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      const db = firebase.firestore();
+      var storage = firebase.storage();
+      
+  </script>
+
+    
+    
+   <script src="javascripts/other_profile.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>

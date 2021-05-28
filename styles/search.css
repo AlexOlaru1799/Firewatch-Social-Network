@@ -1,0 +1,19 @@
+
+.end_search_span{
+    font-size: 35px;
+}
+
+
+@media(max-width:768px)
+{
+    .end_search_span{
+        font-size: 15px;
+       font-weight: 900;
+    }
+}
+
+
+.btn_hover:hover{
+    background: #f26729;
+    color: white;
+}

@@ -1,0 +1,26 @@
+.active-btn{
+   
+    font-size: 20px;
+    color: #fff;
+    font-weight: 900;
+    background: #f26729;
+    width: 100%;
+    
+}
+
+.off-btn{
+    font-size: 20px;
+    color: #1d2a38;
+    font-weight: 900;
+    
+    width: 100%;
+}
+
+
+#login_form{
+    position: absolute;
+    top: 100px;
+    width: 95%;
+    left: 10px;
+    
+}

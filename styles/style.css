@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Varela Round');
+
+.scrollremove::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollremove {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+}
+
+
+*{
+    font-family: Varela Round;
+}
+
+.navbar_logo_image{
+    width: 50px;
+}
+
+.navbar_logo_title{
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.navbar-nav{
+    font-size: 25px;
+}
+
+
+.cell_image{
+    background: url(imgs/social1.png) no-repeat;
+    background-size: contain;
+    
+}
+
+
+.signup-card a{
+    text-decoration: none;
+    font-size: 25px;
+    color: #8f8e8d;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon,
+.carousel-indicators {
+  filter: invert(1);
+}
+
+
+.my_carousel-caption1 { width:200px; z-index:10; color:#fff; text-align:center; top:10%; left:25%; bottom:auto; -webkit-transform:translate(0, -50%); -ms-transform:translate(0, -50%); transform:translate(0, -50%); }
+
+.my_carousel-caption2 { width:200px; z-index:10; color:#fff; text-align:center; top:20%; left:30%; bottom:auto; -webkit-transform:translate(0, -50%); -ms-transform:translate(0, -50%); transform:translate(0, -50%); }
+
+.my_carousel-caption3 { width:200px; z-index:10; color:#fff; text-align:center; top:72%; left:60%; bottom:auto; -webkit-transform:translate(0, -50%); -ms-transform:translate(0, -50%); transform:translate(0, -50%); }
+
+.my_carousel-caption4 { width:200px; z-index:10; color:#fff; text-align:center; top:45%; left:23%; bottom:auto; -webkit-transform:translate(0, -50%); -ms-transform:translate(0, -50%); transform:translate(0, -50%); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
